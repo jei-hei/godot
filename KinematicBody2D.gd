@@ -2,6 +2,10 @@ extends KinematicBody2D
 
 export var speed = 200
 onready var sprite = $AnimatedSprite
+func _ready():
+	if Global.char_position != Vector2.ZERO:
+		 $".".position = Global.char_position
+	OS.center_window()
 
 func _physics_process(delta):
 	var way = Vector2.ZERO
@@ -21,3 +25,23 @@ func _physics_process(delta):
 		sprite.play("idle")
 
 	move_and_slide(velocity)
+
+
+func _on_house2_body_entered(body):
+	Global.char_position = Vector2(456,733)
+	get_tree().change_scene("res://scripts/house2interior.tscn")
+
+
+func _on_Area2D_body_entered(body):
+	Global.char_position = Vector2(408,472)
+	get_tree().change_scene("res://scripts/Background.tscn")
+
+
+func _on_cave_body_entered(body):
+	Global.char_position = Vector2(64,256)
+	get_tree().change_scene("res://scripts/caveinterior.tscn")
+
+
+func _on_caveout_body_entered(body):
+	Global.char_position = Vector2(1544,688)
+	get_tree().change_scene("res://scripts/Background.tscn")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Images/house1_interior.png" type="Texture" id=1]
+[ext_resource path="res://scripts/character.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 106.039, 15.25 )
+
+[node name="house2interior" type="Node2D"]
+scale = Vector2( 0.831027, 0.705795 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 454.859, 444.888 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 437, 810, 363, 808, 364, 743, 22, 742, 23, 588, 40, 585, 67, 599, 93, 584, 96, 549, 95, 540, 96, 529, 103, 509, 92, 482, 67, 476, 49, 481, 34, 488, 23, 478, 22, 389, 27, 278, 28, 255, 121, 260, 125, 250, 223, 251, 314, 253, 382, 253, 388, 207, 387, 166, 544, 166, 542, 252, 644, 251, 740, 252, 745, 330, 752, 335, 777, 334, 891, 335, 890, 454, 799, 453, 793, 438, 617, 440, 610, 520, 601, 527, 602, 579, 602, 613, 808, 616, 832, 618, 849, 632, 572, 634, 575, 721, 844, 719, 852, 646, 891, 647, 890, 743, 552, 743, 549, 805, 495, 811, 500, 907, 956, 908, 993, 907, 979, -190, -109, -200, -99, 883, 433, 900, 468, 905, 464, 826, 468, 811 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 3.60999, 2.83368 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 455.461, 779 )
+scale = Vector2( 0.516336, 0.605907 )
+shape = SubResource( 1 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 451.249, 731.091 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
+
+[connection signal="body_entered" from="Area2D" to="KinematicBody2D" method="_on_Area2D_body_entered"]
