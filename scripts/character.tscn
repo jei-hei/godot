@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://character/down-removebg-preview.png" type="Texture" id=1]
 [ext_resource path="res://character/walkleft1 (2).png" type="Texture" id=2]
@@ -44,6 +44,15 @@ animations = [ {
 radius = 16.0
 height = 16.0
 
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+fill = 1
+fill_from = Vector2( 0.504167, 0.493056 )
+fill_to = Vector2( 0.848611, 0.265278 )
+
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 11 )
 
@@ -55,3 +64,8 @@ animation = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
 shape = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 3.42188, 2.90625 )
+texture = SubResource( 4 )
+texture_scale = 4.37

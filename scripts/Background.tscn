@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Images/green_bg.png" type="Texture" id=1]
 [ext_resource path="res://scripts/character.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scripts/road.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/house2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Images/pond.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/key.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/torched.tscn" type="PackedScene" id=11]
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,6 +41,12 @@ position = Vector2( 1568, 536 )
 
 [node name="cave" parent="Node2D" instance=ExtResource( 3 )]
 position = Vector2( 832, 352 )
+
+[node name="key" parent="Node2D" instance=ExtResource( 10 )]
+position = Vector2( 424, 600 )
+
+[node name="torched" parent="Node2D" instance=ExtResource( 11 )]
+position = Vector2( 640, 584 )
 
 [node name="for tree" type="Node2D" parent="."]
 

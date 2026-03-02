@@ -1,8 +1,17 @@
 extends KinematicBody2D
 
+
+onready var light = $Light2D   # adjust path if needed
+
+func _input(event):
+	if event.is_action_pressed("toggle_light"):
+		light.visible = !light.visible   # flips between on/off
+
+
 export var speed = 200
 onready var sprite = $AnimatedSprite
 func _ready():
+	$Light2D.visible = false   # start off
 	if Global.char_position != Vector2.ZERO:
 		 $".".position = Global.char_position
 	OS.center_window()
@@ -28,8 +37,9 @@ func _physics_process(delta):
 
 
 func _on_house2_body_entered(body):
-	Global.char_position = Vector2(456,733)
-	get_tree().change_scene("res://scripts/house2interior.tscn")
+	if Global.key_taken == true:
+		
+		get_tree().change_scene("res://scripts/house2interior.tscn")
 
 
 func _on_Area2D_body_entered(body):
@@ -45,3 +55,11 @@ func _on_cave_body_entered(body):
 func _on_caveout_body_entered(body):
 	Global.char_position = Vector2(1544,688)
 	get_tree().change_scene("res://scripts/Background.tscn")
+
+
+func _on_StaticBody2D2_body_entered(body):
+	Global.char_position = Vector2(1544,688)
+	get_tree().change_scene("res://scripts/Background.tscn")
+	
+
+
