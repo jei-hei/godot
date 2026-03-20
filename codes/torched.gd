@@ -26,15 +26,11 @@ func _ready():
 		queue_free()
 
 
-#
-#func _on_Area2D_body_entered(body):
-
-
 
 func _on_Area2D_body_entered(body):
 	if body.name == "KinematicBody2D":
 		print("collected") 
-		Global.torched_collected = true   # set global flag
+		Global.torched_collected = true   
 		emit_signal("torched_collected")
 		if $AnimationPlayer.has_animation("torched_animation"):
 			$AnimationPlayer.play("torched_animation")

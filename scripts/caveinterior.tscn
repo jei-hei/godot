@@ -26,6 +26,9 @@ position = Vector2( 672, 192 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 768, 280 )
+speed = 200
+gravity = 2000
+jump_speed = 800
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 current = true

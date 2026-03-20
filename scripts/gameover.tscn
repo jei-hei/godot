@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Images/1253115.jpg" type="Texture" id=1]
+[ext_resource path="res://character/jump2.png" type="Texture" id=2]
+[ext_resource path="res://scripts/gameover.gd" type="Script" id=3]
+[ext_resource path="res://assetsss/Fonts/candles_.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 39
+font_data = ExtResource( 4 )
+
+[node name="gameover" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 896.0
+margin_bottom = 480.0
+texture = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = -8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 401.0
+margin_top = 213.0
+margin_right = 622.0
+margin_bottom = 386.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 221.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 221.0
+margin_bottom = 173.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 172.0
+margin_bottom = 119.0
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/TextureButton"]
+margin_left = 31.0
+margin_top = 119.0
+margin_right = 89.0
+margin_bottom = 133.0
+text = "Try Again"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
